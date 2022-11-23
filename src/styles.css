@@ -1,0 +1,100 @@
+body {
+  font-family: "Assistant", sans-serif;
+}
+
+.card-outline {
+  display: block;
+  margin: 30px auto;
+  max-width: 800px;
+  background-color: #fffcfc;
+}
+
+.current-weather {
+  font-size: 28px;
+  font-weight: bolder;
+  color: #1b4965;
+}
+
+.search-button {
+  background-color: #1976d2;
+}
+
+.current-location-button {
+  background-color: #1b4965;
+  font-size: 14px;
+  padding: 8px;
+}
+.city-name {
+  color: #1976d2;
+  font-size: 45px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.temp-format {
+  color: #1b4965;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  top: 30px;
+  left: -120px;
+}
+
+.celsius {
+  padding: 1px 10px 1px 7px;
+  margin: 3px;
+}
+
+.fahrenheit {
+  padding: 1px 10px 1px 7px;
+  margin: 3px;
+}
+
+.date {
+  color: #353535;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.conditions,
+.wind-precipitation {
+  color: #353535;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.temp-display {
+  font-size: 45px;
+  font-weight: 700;
+  text-align: center;
+  color: #1b4965;
+}
+.cloudy-icon {
+  font-size: 45px;
+  padding-right: 20px;
+}
+
+.wind-precipitation {
+  text-align: left;
+}
+
+.week-forecast {
+  text-align: center;
+  font-weight: 600;
+  color: #353535;
+}
+
+.week-forecast-icons {
+  text-align: center;
+  font-size: 25px;
+  color: #1b4965;
+}
+
+footer {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 100;
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+}

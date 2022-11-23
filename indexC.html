@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Roboto+Mono:ital,wght@0,100;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/2300103af9.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card card-outline">
+        <div class="card-body">
+          <section class="header">
+            <div class="row">
+              <div class="col-6 current-weather">Current Weather</div>
+              <div class="col-6 search-bar">
+                <form id="city-search-form">
+                  <input
+                    type="text"
+                    placeholder="Search by city"
+                    id="searchbar"
+                    class="searchbar"
+                  />
+                  <input
+                    type="submit"
+                    class="btn btn-primary search-button"
+                    id="search-button"
+                    value="Search"
+                  />
+                  <input
+                    type="submit"
+                    class="btn btn-primary current-location-button"
+                    id="current-location-btn"
+                    value="Current Location"
+                  />
+                </form>
+              </div>
+            </div>
+          </section>
+          <section class="citydateformat">
+            <div class="row row-2-cols-2">
+              <span class="city-date-conditions"></span>
+              <div class="col city-name" id="city-name"></div>
+              <div class="col temp-format">
+                <button class="celsius" id="selector-celsius">°C</button
+                ><span></span
+                ><button class="fahrenheit" id="selector-fahrenheit">°F</button>
+              </div>
+              <div class="date" id="current-date-time">
+                Wednesday, October 5th 6:00pm
+              </div>
+              <div class="conditions" id="description"></div>
+            </div>
+          </section>
+          <section class="temperature-details">
+            <div class="row">
+              <div class="col-6 temp-display">
+                <i class="fa-solid fa-cloud cloudy-icon"></i>
+                <span id="temperature">15</span>ºC
+              </div>
+              <div class="col-6 wind-precipitation">
+                <div class="wind" id="wind">
+                  Wind: <span id="wind-speed-value"></span> km/h
+                </div>
+                <div class="precipitation" id="humidity">
+                  Humidity: <span id="humidity-value"></span>%
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="week-forecast">
+            <div class="row">
+              <div class="col">Thu</div>
+              <div class="col">Fri</div>
+              <div class="col">Sat</div>
+              <div class="col">Sun</div>
+              <div class="col">Mon</div>
+
+              <span class="week-forecast-icons">
+                <div class="row">
+                  <div class="col">
+                    <i class="fa-solid fa-cloud-sun-rain sun-rain-icon"></i>
+                  </div>
+                  <div class="col">
+                    <i class="fa-solid fa-cloud-sun-rain sun-rain-icon"></i>
+                  </div>
+                  <div class="col">
+                    <i class="fa-solid fa-cloud-sun-rain sun-rain-icon"></i>
+                  </div>
+                  <div class="col">
+                    <i class="fa-solid fa-cloud-rain rain-icon"></i>
+                  </div>
+
+                  <div class="col">
+                    <i class="fa-solid fa-sun sunny-icon"></i>
+                  </div>
+                </div>
+              </span>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <br />
+      <footer>Developed by Aline Vieira</footer>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
