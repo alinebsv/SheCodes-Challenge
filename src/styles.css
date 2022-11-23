@@ -91,6 +91,14 @@ body {
   color: #1b4965;
 }
 
+.link-to-github {
+  color: #1b4965;
+}
+
+.link-to-github:hover {
+  color: #1976d2;
+}
+
 footer {
   font-family: "Roboto Mono", monospace;
   font-weight: 100;
