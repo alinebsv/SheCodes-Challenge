@@ -89,6 +89,18 @@ function showWeather(response) {
   currentTempIcon.setAttribute("alt", response.data.condition.description);
 }
 
+function showWeeklyForecast(response) {
+  let forecastIcon1 = document.querySelector("#forecast-icon-1");
+  forecastIcon1.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[1].condition.icon}.png`
+  );
+  forecastIcon1.setAttribute(
+    "alt",
+    response.data.daily[1].condition.description
+  );
+}
+
 function searchCity(city) {
   let apiKey = "98f0981ob464a4bba9c346290ab1tcf2";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -98,7 +110,7 @@ function searchCity(city) {
 function weeklyForecast(city) {
   let apiKey = "98f0981ob464a4bba9c346290ab1tcf2";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then;
+  axios.get(apiUrl).then(showWeeklyForecast);
 }
 
 function citySearchBar(event) {
