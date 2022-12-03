@@ -31,29 +31,34 @@
         <div class="card-body">
           <section class="header">
             <div class="row">
-              <div class="col-6 current-weather">Current Weather</div>
-              <div class="col-6 search-bar">
-                <form id="city-search-form">
-                  <input
-                    type="text"
-                    placeholder="Search by city"
-                    id="searchbar"
-                    class="searchbar"
-                  />
-                  <input
-                    type="submit"
-                    class="btn btn-primary search-button"
-                    id="search-button"
-                    value="Search"
-                  />
-                  <input
-                    type="submit"
-                    class="btn btn-primary current-location-button"
-                    id="current-location-btn"
-                    value="Current Location"
-                  />
-                </form>
-              </div>
+              <form id="city-search-form">
+                <div class="row">
+                  <div class="col-6 current-weather">Current Weather</div>
+                  <div class="col-3 search-bar searchbaroutline">
+                    <input
+                      type="text"
+                      placeholder="Search by city"
+                      id="searchbar"
+                      class="form-control-md searchbar"
+                    />
+                  </div>
+                  <div class="col-3">
+                    <div class="btn-group" role="group" aria-label="Search Buttons">
+                      <button 
+                         type="submit" 
+                         class="btn btn-outline-primary search-button" 
+                         id="search-button" 
+                         value="Search">Search
+                      </button>
+                      <button 
+                        type="submit" 
+                        class="btn btn-outline-primary current-location-button" 
+                        id="current-location-btn" 
+                        value="Current Location">My Location
+                      </button>
+                   
+                </div>
+              </form>
             </div>
           </section>
           <section class="citydateformat">

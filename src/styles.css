@@ -17,12 +17,23 @@ body {
 
 .search-button {
   background-color: #1976d2;
+  color: white;
+}
+
+.search-button:hover {
+  background-color: #1b4965;
+  color: white;
 }
 
 .current-location-button {
   background-color: #1b4965;
-  font-size: 14px;
-  padding: 8px;
+  color: white;
+  font-size: 10px;
+}
+
+.current-location-button:hover {
+  background-color: #1976d2;
+  color: white;
 }
 .city-name {
   color: #1976d2;
