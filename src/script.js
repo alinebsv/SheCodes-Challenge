@@ -67,6 +67,8 @@ displayTime.innerHTML = currentDate(currentTime);
 function showWeather(response) {
   document.querySelector("#city-name").innerHTML = response.data.city;
 
+  temperatureCelsius = response.data.temperature.current;
+
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.temperature.current
   );
@@ -92,6 +94,7 @@ function showWeather(response) {
 function citySearchBar(event) {
   event.preventDefault();
   let city = document.querySelector("#searchbar").value;
+  document.querySelector("#temperatureUnit").innerHTML = "ºC";
   searchCity(city);
 }
 
@@ -112,11 +115,33 @@ function searchCity(city) {
   axios.get(apiUrl).then(showWeather);
 }
 
+function showTempFahrenheit(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML = Math.round(
+    (temperatureCelsius * 9) / 5 + 32
+  );
+  document.querySelector("#temperatureUnit").innerHTML = "ºF";
+}
+
+function showTempCelsius(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML =
+    Math.round(temperatureCelsius);
+  document.querySelector("#temperatureUnit").innerHTML = "ºC";
+}
+let temperatureCelsius = null;
+
 let searchEngine = document.querySelector("#city-search-form");
 searchEngine.addEventListener("click", citySearchBar);
 
 let currentLocationBtn = document.querySelector("#current-location-btn");
 currentLocationBtn.addEventListener("click", getCurrentLocation);
+
+let fahrenheitBtn = document.querySelector("#selector-fahrenheit");
+fahrenheitBtn.addEventListener("click", showTempFahrenheit);
+
+let celsiusBtn = document.querySelector("#selector-celsius");
+celsiusBtn.addEventListener("click", showTempCelsius);
 
 searchCity("Vancouver");
 
