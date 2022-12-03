@@ -75,6 +75,10 @@ body {
   font-weight: 300;
 }
 
+.conditions {
+  text-transform: capitalize;
+}
+
 .temp-display {
   font-size: 45px;
   font-weight: 700;
