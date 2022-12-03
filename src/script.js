@@ -117,6 +117,8 @@ function searchCity(city) {
 
 function showTempFahrenheit(event) {
   event.preventDefault();
+  celsiusBtn.classList.remove("inactive");
+  fahrenheitBtn.classList.add("inactive");
   document.querySelector("#temperature").innerHTML = Math.round(
     (temperatureCelsius * 9) / 5 + 32
   );
@@ -125,6 +127,8 @@ function showTempFahrenheit(event) {
 
 function showTempCelsius(event) {
   event.preventDefault();
+  fahrenheitBtn.classList.remove("inactive");
+  celsiusBtn.classList.add("inactive");
   document.querySelector("#temperature").innerHTML =
     Math.round(temperatureCelsius);
   document.querySelector("#temperatureUnit").innerHTML = "ºC";

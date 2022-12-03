@@ -55,11 +55,25 @@ body {
 .celsius {
   padding: 1px 10px 1px 7px;
   margin: 3px;
+  color: #1b4965;
+  border-color: #1b4965;
+}
+
+.temp-format .inactive {
+  background-color: #1b4965;
+  border-color: #fff;
+  color: #fff;
+}
+
+.temp-format .inactive:hover {
+  cursor: default;
 }
 
 .fahrenheit {
   padding: 1px 10px 1px 7px;
   margin: 3px;
+  color: #1b4965;
+  border-color: #1b4965;
 }
 
 .date {
