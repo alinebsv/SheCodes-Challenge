@@ -91,11 +91,19 @@ function showWeather(response) {
   currentTempIcon.setAttribute("alt", response.data.condition.description);
 }
 
+function showForecast(response) {}
+
 function citySearchBar(event) {
   event.preventDefault();
   let city = document.querySelector("#searchbar").value;
   document.querySelector("#temperatureUnit").innerHTML = "ºC";
   searchCity(city);
+}
+
+function getForecast(city) {
+  let apiKey = "98f0981ob464a4bba9c346290ab1tcf2";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function getCurrentLocation(event) {
@@ -148,23 +156,3 @@ let celsiusBtn = document.querySelector("#selector-celsius");
 celsiusBtn.addEventListener("click", showTempCelsius);
 
 searchCity("Vancouver");
-
-/* FORECAST ENGINE - STILL UNDER WORK
-
-function showWeeklyForecast(response) {
-  let forecastIcon1 = document.querySelector("#forecast-icon-1");
-  forecastIcon1.setAttribute(
-    "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[1].condition.icon}.png`
-  );
-  forecastIcon1.setAttribute(
-    "alt",
-    response.data.daily[1].condition.description
-  );
-} */
-
-/* function weeklyForecast(city) {
-  let apiKey = "98f0981ob464a4bba9c346290ab1tcf2";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeeklyForecast);
-} */
