@@ -77,7 +77,7 @@ function showWeather(response) {
     response.data.temperature.humidity;
 
   document.querySelector("#wind-speed-value").innerHTML = Math.round(
-    response.data.wind.speed
+    response.data.wind.speed * 3.6
   );
 
   document.querySelector("#description").innerHTML =
