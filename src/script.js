@@ -22,13 +22,13 @@ function currentDate(date) {
   let month = months[date.getMonth()];
 
   let weekdays = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
   let weekday = weekdays[date.getDay()];
 
@@ -62,6 +62,12 @@ function currentDate(date) {
 let displayTime = document.querySelector("#current-date-time");
 displayTime.innerHTML = currentDate(currentTime);
 
+function formatDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
 // ** SEARCH ENGINE **//
 
 function showWeather(response) {
@@ -91,8 +97,6 @@ function showWeather(response) {
   currentTempIcon.setAttribute("alt", response.data.condition.description);
 }
 
-function showForecast(response) {}
-
 function citySearchBar(event) {
   event.preventDefault();
   let city = document.querySelector("#searchbar").value;
@@ -100,11 +104,93 @@ function citySearchBar(event) {
   searchCity(city);
 }
 
+// ** WEEKLY FORECAST **//
+
+function showForecast1(response) {
+  let forecastIcon = document.querySelector("#forecast-icon-1");
+
+  forecastIcon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[1].condition.icon}.png`
+  );
+
+  let forecastDay = document.querySelector("#forecastDay1");
+
+  forecastDayHtml = formatDate(response.data.daily[1].time);
+  forecastDay.innerHTML = forecastDayHtml;
+}
+
+function showForecast2(response) {
+  let forecastIcon = document.querySelector("#forecast-icon-2");
+
+  forecastIcon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[2].condition.icon}.png`
+  );
+
+  let forecastDay = document.querySelector("#forecastDay2");
+
+  forecastDayHtml = formatDate(response.data.daily[2].time);
+  forecastDay.innerHTML = forecastDayHtml;
+}
+
+function showForecast3(response) {
+  let forecastIcon = document.querySelector("#forecast-icon-3");
+
+  forecastIcon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[3].condition.icon}.png`
+  );
+
+  let forecastDay = document.querySelector("#forecastDay3");
+
+  forecastDayHtml = formatDate(response.data.daily[3].time);
+  forecastDay.innerHTML = forecastDayHtml;
+}
+
+function showForecast4(response) {
+  let forecastIcon = document.querySelector("#forecast-icon-2");
+
+  forecastIcon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[4].condition.icon}.png`
+  );
+
+  let forecastDay = document.querySelector("#forecastDay4");
+
+  forecastDayHtml = formatDate(response.data.daily[4].time);
+  forecastDay.innerHTML = forecastDayHtml;
+}
+
+function showForecast5(response) {
+  let forecastIcon = document.querySelector("#forecast-icon-5");
+
+  forecastIcon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[5].condition.icon}.png`
+  );
+
+  let forecastDay = document.querySelector("#forecastDay5");
+
+  forecastDayHtml = formatDate(response.data.daily[5].time);
+  forecastDay.innerHTML = forecastDayHtml;
+}
+
 function getForecast(city) {
   let apiKey = "98f0981ob464a4bba9c346290ab1tcf2";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showForecast);
+  axios
+    .get(apiUrl)
+    .then(
+      showForecast1,
+      showForecast2,
+      showForecast3,
+      showForecast4,
+      showForecast5
+    );
 }
+
+// ** API CALLS **//
 
 function getCurrentLocation(event) {
   event.preventDefault();
@@ -114,14 +200,16 @@ function getCurrentLocation(event) {
 function getPosition(position) {
   let apiKey = "62bc298785543e137bc6756e514eb1c3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeather);
+  axios.get(apiUrl).then(showWeather, getForecast);
 }
 
 function searchCity(city) {
   let apiKey = "98f0981ob464a4bba9c346290ab1tcf2";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeather);
+  axios.get(apiUrl).then(showWeather, getForecast);
 }
+
+// ** TEMPERATURE CONVERSION **//
 
 function showTempFahrenheit(event) {
   event.preventDefault();
@@ -143,6 +231,8 @@ function showTempCelsius(event) {
 }
 let temperatureCelsius = null;
 
+// ** ACTION CALLS **//
+
 let searchEngine = document.querySelector("#city-search-form");
 searchEngine.addEventListener("click", citySearchBar);
 
@@ -156,3 +246,4 @@ let celsiusBtn = document.querySelector("#selector-celsius");
 celsiusBtn.addEventListener("click", showTempCelsius);
 
 searchCity("Vancouver");
+getForecast("Vancouver");
