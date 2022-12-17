@@ -102,6 +102,7 @@ function citySearchBar(event) {
   let city = document.querySelector("#searchbar").value;
   document.querySelector("#temperatureUnit").innerHTML = "ºC";
   searchCity(city);
+  getForecast(city);
 }
 
 // ** WEEKLY FORECAST **//
