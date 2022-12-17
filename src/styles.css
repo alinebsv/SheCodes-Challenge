@@ -99,10 +99,6 @@ body {
   text-align: center;
   color: #1b4965;
 }
-.cloudy-icon {
-  font-size: 45px;
-  padding-right: 20px;
-}
 
 .wind-precipitation {
   text-align: left;
@@ -114,10 +110,21 @@ body {
   color: #353535;
 }
 
-.week-forecast-icons {
+.forecast-date {
+  color: #353535;
+}
+
+#weather-icon {
   text-align: center;
-  font-size: 25px;
-  color: #1b4965;
+  width: 70px;
+}
+
+.forecast-temperatures {
+  opacity: 0.9;
+}
+
+.forecast-temperature-max {
+  padding-right: 7px;
 }
 
 .link-to-github {

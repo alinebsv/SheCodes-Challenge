@@ -121,7 +121,15 @@ function showForecast(response) {
       <div class="forecast-date">${formatDate(forecastDay.time)}</div>
       <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
         forecastDay.condition.icon
-      }.png" alt="weather icon" />
+      }.png" alt="weather icon" id="weather-icon"/>
+      <div class="forecast-temperatures">
+          <span class="forecast-temperature-max"> ${Math.round(
+            forecastDay.temperature.maximum
+          )}° </span>
+          <span class="forecast-temperature-min"> ${Math.round(
+            forecastDay.temperature.minimum
+          )}° </span>
+        </div>
       </div>`;
     }
   });
